@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login</title>
+
+    <style>
+body{
+    background-image:url("https://media.istockphoto.com/videos/abstract-technology-background-video-id1264206256?b=1&k=20&m=1264206256&s=640x640&h=nwKjVqV5fsgefFU16lKaWTOGGXSmZUU0Nn2LU8ssCbk=");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+.navbar{
+    justify-content:flex-end;
+    padding: 10px;
+    background-color: rgba(80, 93, 108, 0.9);
+    
+}
+
+.nav-link{
+    
+    margin-right: 60px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: aliceblue;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.modal-content{
+
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: aliceblue;
+    margin-top: 100px;
+    margin-left: 70px;
+    width: 400px;
+    height: 455px;
+    border-radius: 5px;
+        
+}
+         
+.modal-body .form-control{
+
+  margin: 20px 0px 20px 0px;
+  width: 100%;
+  
+}
+
+ .modal-body .btn{
+  background-color: rgb(83, 103, 147);
+  font-size: 15px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 10px;
+  color: aliceblue;
+}
+
+.container{
+    background: linear-gradient(to right, rgba(85, 92, 99, 0.6), rgba(7, 84, 123, 0.6));
+    width: 800px; 
+    border-radius: 5px; 
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm">
+        
+        
+
+        <ul class="navbar-nav ">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'add_contact' %}">Contact us</a>
+            </li>
+            
+           
+           
+        </ul>
+
+    </nav>
+    <div class="container p-5" >
+
+        <h2 class="text-center text-uppercase  font-weight-bold mb-5  p-2" style="background-color : rgba(80, 93, 108); color: azure;"> 
+            Login</h2>
+    
+    
+            <form action="{% url 'admin' %}" method='post' enctype="multipart/form-data" class="login">
+    
+              {% csrf_token %}
+    
+              
+              <div class="form-group">
+                <input type="text" class="form-control" id="uname" placeholder="Enter Username/Email" 
+                       name="uname" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+               </div>
+
+               <div class="form-group">
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" 
+                       name="pswd" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+               </div>
+
+                                             
+                <button type="submit" class="btn  text-align-center font-weight-bold mt-2" 
+                style="width: 200px;  margin-left: 250px; background-color:rgba(80, 93, 108); color: aliceblue;"> Login</button>
+    
+                
+            </form>
+</body>
+</html>
