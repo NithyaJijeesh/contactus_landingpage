@@ -1,0 +1,60 @@
+{% extends 'admin.html' %}
+{% block content %}
+
+{% load static %}
+
+<div class="container p-5" style="background-color: rgba(99, 99, 120, 0.9); width: 800px; border-radius: 5px;">
+
+  <h2 class="text-center mt-5 p-2 text-uppercase font-weight-bold mb-5" style="background-color : rgba(99, 99, 120); color: azure;"> 
+    Edit Contacts</h2>
+
+          
+                <form class="was-validated 100vw" action="{% url 'edit_contact' contact.id  %}" method="post" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                
+                        <input type="text" class="txt form-control" id="fullname" placeholder="Full Name" value="{{contact.name}}"
+                             name="fullname" style="width: 480px;height: 35px; ">
+                        
+                    </div>
+
+                    <div class="form-group">
+                
+                        <input type="text" class="txt form-control" id="email" placeholder="Email" value="{{contact.email}}"
+                            name="email" style="width: 480px; height: 35px;">
+                    </div>
+                    <span class="input-group">
+                    <div class="form-group">
+                
+                        <input type="text" class="txt form-control" id="comp" placeholder="Company" value="{{contact.company}}"
+                            name="comp"style="width: 225px; height: 35px;" >
+                        </div>
+
+                    <div class="form-group">
+                
+                        <input type="tel" class="txt form-control" id="cnum" placeholder="Phone" value="{{contact.phone}}"
+                            name="cnum" style="width: 225px; margin-left: 0px; height: 35px;">
+                    </div></span>
+
+                    <div class="form-group">
+                        <textarea class="txt form-control" id="msg" placeholder="Message" value="{{contact.message}}"
+                        name="msg" style="width: 480px;height: 80px; "></textarea>
+                    </div>
+        
+                    
+                    <button type="submit" class="btn  text-align-center font-weight-bold mt-2" 
+                    style="width: 200px;  margin-left: 250px; background-color:rgba(99, 99, 120); color: aliceblue;"> SUBMIT</button>
+            
+                        
+
+                    
+
+                </form>
+                
+                
+            </div>
+        </div>
+
+{% endblock %}

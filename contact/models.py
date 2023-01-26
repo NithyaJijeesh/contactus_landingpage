@@ -1,12 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-class video1(models.Model):
-    video = models.ImageField(null = True,blank = True, upload_to = '')
 
-    def __str__(self):
-        return self.video
+class video1(models.Model):
+    video_file = models.FileField(upload_to='videos/',null= True)
+
+    
 
 class contact_det(models.Model):
     name = models.CharField(max_length=100)

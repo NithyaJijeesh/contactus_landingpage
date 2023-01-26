@@ -1,0 +1,47 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="container p-5" style="background-color: rgba(99, 99, 120, 0.9); width: 900px; border-radius: 5px;">
+    <h2 class="text-center p-2 mt-5 text-uppercase font-weight-bold mb-5" style="background-color : rgba(99, 99, 120); color: azure;"> 
+        Contacts</h2>
+
+    <table class="table table-striped" style="background-color: aliceblue;">
+
+      <thead class = "mt-3 p-1" style="background-color: rgb(76, 68, 68); color:azure;">
+        <tr>
+          
+          <th>NAME</th>
+          <th>EMAIL</th>
+          <th>COMPANY</th>
+          <th>PHONE</th>
+          <th>MESSAGE</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+
+      <tbody class="font-weight-bold">
+        
+            {% for c in contact %}
+        <tr>
+            <td style="text-transform: capitalize;"> 
+              {{ c.name }}</td>
+            <td>{{ c.email }}</td>
+            <td style="text-transform: capitalize;">{{ c.company }}</td>
+            <td>{{ c.phone }}</td>
+            <td>{{ c.message }}</td>
+           
+            <td p-2>
+              <a href='/edit_contact/{{ c.id }}' style="color: black ; text-decoration: none; ">
+                <i class="fa fa-edit"></i>EDIT</a><br>
+            <a href='/del_contact/{{ c.id }}' style="color: black ; text-decoration: none; ">
+              <i class="fa fa-trash"></i>DELETE</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+{% endblock%}

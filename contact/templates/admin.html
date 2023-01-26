@@ -44,7 +44,7 @@
 }
 
 .navbar {
-    background: #1D2951;
+    background:rgba(77, 77, 92, 0.5);
     position: fixed;
     width: 100%;
     padding: 10px;
@@ -79,7 +79,7 @@ nav ul li a:hover {
 
 .side-menu {
     position: fixed;
-    background: #1D2951;
+    background: rgba(77, 77, 92, 0.9);
     height: 100vh;
     overflow-y: scroll;
     width: 250px;
@@ -190,7 +190,7 @@ nav .menu-bar {
 .navbar{
     justify-content:space-between;
     padding: 10px;
-    background-color: rgba(99, 99, 120, 0.4);
+    background-color: rgba(99, 99, 120, 0.6);
     
 }
 
@@ -223,11 +223,12 @@ nav .menu-bar {
   margin: 20px 0px 20px 0px;
   width: 100%;
   border-radius: 2px;
+  padding: 5px;
   
 }
 
- .modal-body .btn{
-  background-color: rgb(83, 103, 147);
+ .btn{
+  background-color: rgba(99, 99, 120, 0.9);
   font-size: 15px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   margin-top: 10px;
@@ -243,16 +244,14 @@ nav .menu-bar {
 
 <body> 
     {% if user.is_authenticated %}
+
         <nav class="navbar navbar-expand-sm"> 
             <input type="checkbox" id="menu">
             
-            <div class = "logo " style="margin-left: 30px">
-                <a style ="text-decoration: none;" href="">
-                    <img src="{% static 'images/logo.png' %}"
-                         style="width:60px; height:60px;">
-                </a>
+            <div class = "logo " style="margin-left: 30px ;height:60px;">
+                
             </div>
-            <h3 style="font-size: 20px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            <h3 style="font-size: 25px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             color: azure; margin-left: 200px;"><b>Welcome <em style="text-transform: capitalize;">{{ user.username }}</em></b></h3>
 
                 
@@ -270,11 +269,11 @@ nav .menu-bar {
                 <span>Video</span>
             </a> </li>
             <li>
-            <a href="">
+            <a href="{% url 'show_contact' %}">
                    <span>Contact</span>
             </a> 
             </li>
-            
+          
         </ul>
         </div>
         </div>

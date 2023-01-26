@@ -8,23 +8,25 @@ from django.contrib.auth.decorators import login_required
 
 from .models import *
 
-# Create your views here.
 def home(request):
     return render(request,'home.html')
-def admin(request):
+
+
+def admin_home(request):
     return render(request,'admin.html')
 
-
+@login_required(login_url='login')
 def add_video(request):
     if request.method == 'POST':
         if request.FILES.get('file') is not None:
             vid=  request.FILES.get('file')
         else:
             vid = ''
-        video1(video =vid).save()
-        return redirect('admin')
+        video1(video_file =vid).save()
+        return redirect('admin_home')
 
     return render(request,'video.html')
+
 
 def add_contact(request):
 
@@ -35,13 +37,53 @@ def add_contact(request):
         company = request.POST['comp']
         c_num = request.POST['cnum']
         mssg = request.POST['msg']
-        
+
         ct = contact_det(name = full_name,email= email,company = company,phone= c_num,message = mssg)
         ct.save()
          
-        return redirect('home')
+        return redirect('add_contact')
+        
+    vid = video1.objects.all().last()
+    context = {'video' : vid }
+    return render(request,'contact.html', context)
 
-    return render(request,'contact.html')
+@login_required(login_url='login')
+def show_contact(request):
+    cnt = contact_det.objects.all()
+    context = {
+        'contact' : cnt
+    }
+    return render(request, 'show_contact.html', context)
+
+@login_required(login_url='login')
+def edit_contact(request,pk):
+
+    cnt = contact_det.objects.get(id = pk)
+        
+    if request.method == "POST":
+
+      
+        cnt.name = request.POST.get('fullname')
+        cnt.email  = request.POST.get('email')
+        cnt.company = request.POST.get('comp')
+        cnt.phone = request.POST.get('cnum')
+        cnt.message = request.POST.get('msg')
+            
+
+        cnt.save()
+        
+        return redirect('show_contact')
+
+    context = {
+        'contact' : cnt, 
+    }
+    return render(request,'edit_contact.html',context)
+
+@login_required(login_url='login')
+def del_contact(request,pk):
+    cnt = contact_det.objects.get(id = pk)
+    cnt.delete()
+    return redirect('show_contact')
 
 def login(request):
         
@@ -53,11 +95,11 @@ def login(request):
         if user is not None:
           if user.is_staff:
                 auth.login(request,user)
-                return redirect('admin')
+                return redirect('admin_home')
                       
         else:
             messages.info(request,"Invalid Username or Password")
-            return redirect('/home')
+            return redirect('home')
     
     return redirect('home')
 
