@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <title>Contact Us</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
+
+<style>
+    body{
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdr2Djt1a3dgSYNKmUpEgc3KzXRHgCoClSSA&usqp=CAU');
+    
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+   
+    background-size: cover;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
+   * {
+box-sizing: border-box;
+}
+
+/* Style the container/contact section */
+
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background: transparent !important;
+}
+::-webkit-scrollbar-thumb{
+    background: #bbbbbb;
+    border-radius: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  
+  display: table;
+  clear: both;
+  
+}
+.row{
+    top:20%;
+    margin-top: 5px;
+    margin-left: 200px;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .column, input[type=submit] {
+    margin-left: auto;
+    width: 100%;
+    margin-top: 0;
+    padding: 0;
+    justify-content: center;
+  }
+}
+.column
+{
+    float: left;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    width: auto;
+    height: 530px;
+    border-radius: 15px;
+    justify-content: center;
+    overflow: hidden;
+    width: 500px;
+    box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2), 10px 10px 20px 0px rgba(59, 62, 62, 0.9);
+    text-align: center;
+}
+               
+
+.form-group{
+    margin-top: 25px;
+    padding: 5px;
+    
+}
+
+.btn{
+    width: 200px;
+    text-align: center;
+    background-color:rgba(99, 99, 120, 0.9); 
+    color: aliceblue;
+    
+    margin-left:auto
+}
+video {
+                
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 500px;
+    width: auto;
+    height: auto;
+}
+
+.gradient-custom-3{
+    background: linear-gradient(to right, rgba(91, 92, 93, 0.5), rgba(24, 92, 115, 0.5));
+} 
+.txt{
+    background-color:  azure
+}
+            
+</style>
+
+    </head>
+
+    <body>
+        <div class="container-fluid h-100">
+        
+            <div class="row ">
+
+              <div class="column"  style="border-radius: 10px 0px 0px 10px;">
+                
+                    <video autoplay loop muted controls style="width: 500px; height: auto">
+                    <source src="{{video.video_file.url}}" type="video/quicktime" />
+                
+                    <source src="{{video.video_file.url}}" type="video/webm">
+                    <source src="{{video.video_file.url}}" type="video/ogg">
+                    <source src="{{video.video_file.url}}" type="video/mp4">
+                    </video>
+                  
+                    
+              </div>
+              <div class="column gradient-custom-3 right-side" style="border-radius: 0px 10px 10px 0px;">
+                <h4 class="text-uppercase text-center p-3 font-weight-bold" style="color:azure;">CONTACT US</h4>
+                <form action="{% url 'add_contact' %}" method = 'post' class="was-validated 100vw contact p-3">
+                    
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                
+                        <input type="text" class="txt " id="fullname" placeholder="Full Name" 
+                             name="fullname" style="width: 450px;height: 35px; ">
+                        
+                    </div>
+
+                    <div class="form-group">
+                
+                        <input type="text" class="txt " id="email" placeholder="Email" 
+                            name="email" style="width: 450px; height: 35px;">
+                    </div>
+                    <span class="input-group">
+                    <div class="form-group">
+                
+                        <input type="text" class="txt" id="comp" placeholder="Company" 
+                            name="comp"style="width: 218px; height: 35px;" >
+                        </div>
+
+                    <div class="form-group">
+                
+                        <input type="tel" class="txt" id="cnum" placeholder="Phone" 
+                            name="cnum" style="width: 218px; margin-left: 0px; height: 35px;">
+                    </div></span>
+
+                    <div class="form-group">
+                        <textarea class="txt" id="msg" placeholder="Message" 
+                        name="msg" style="width: 450px;height: 80px; "></textarea>
+                    </div>
+        
+                    
+                        <button type="submit" class="btn  text-align-center font-weight-bold mt-2"> SUBMIT</button>
+
+                    
+                </form>
+              </div>
+            </div>
+        </div>
+    </body>
+</html>

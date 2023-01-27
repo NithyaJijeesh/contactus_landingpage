@@ -55,29 +55,6 @@ def show_contact(request):
     }
     return render(request, 'show_contact.html', context)
 
-@login_required(login_url='login')
-def edit_contact(request,pk):
-
-    cnt = contact_det.objects.get(id = pk)
-        
-    if request.method == "POST":
-
-      
-        cnt.name = request.POST.get('fullname')
-        cnt.email  = request.POST.get('email')
-        cnt.company = request.POST.get('comp')
-        cnt.phone = request.POST.get('cnum')
-        cnt.message = request.POST.get('msg')
-            
-
-        cnt.save()
-        
-        return redirect('show_contact')
-
-    context = {
-        'contact' : cnt, 
-    }
-    return render(request,'edit_contact.html',context)
 
 @login_required(login_url='login')
 def del_contact(request,pk):

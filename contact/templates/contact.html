@@ -1,143 +1,172 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
     {% load static %}
-    <head>
-        <title>Responsive Registration</title>
+<head>
+    <title>Contact Us</title>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <style>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
 
-            body{
+<style>
+    body{
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdr2Djt1a3dgSYNKmUpEgc3KzXRHgCoClSSA&usqp=CAU');
+    
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+   
+    background-size: cover;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
+   * {
+box-sizing: border-box;
+}
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background: transparent !important;
+}
+::-webkit-scrollbar-thumb{
+    background: #bbbbbb;
+    border-radius: 10px;
+}
+.card-video .card-contact .select-arrow {
+    top: 13px;
+    
+
+}
+.card-video{
+    border-radius: 10px 0px 0px 10px;
+}
+.card-contact{
+    border-radius: 0px 10px 10px 0px;
+}
+.card{
+    margin-top: 50px;
+    margin-bottom: 25px;
+    
+    width: auto;
+    height: 550px;
+    overflow: hidden;
+    background: linear-gradient(to right, rgba(91, 92, 93, 0.5), rgba(24, 92, 115, 0.5));
+}
+
+.btn{
+    width: 200px;
+    text-align: center;
+    background-color:rgba(99, 99, 120, 0.9); 
+    color: aliceblue;
+    
+    margin-left:175px;
+}
+video {
                 
-                background-position: center;
-                background-size: cover;
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-            }
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 500px;
+    width: auto;
+    height: auto;
+}
 
-            video {
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                min-width: 100%;
-                min-height: 100%;
-                width: auto;
-                height: auto;
-                z-index: -1;
-                -webkit-transform: translateX(-50%) translateY(-50%);
-                transform: translateX(-50%) translateY(-50%);
-                
-                }
+@media screen and (max-width: 400px) {
+.card-video .card-contact {
+    
+border-radius: 10px;
+}
+}
+</style>
 
+</head>
 
-
-
-
-            .gradient-custom-3{
-                background: linear-gradient(to right, rgba(85, 92, 99, 0.4), rgba(99, 99, 120, 0.7));
-            } 
-            
-
-            .container-fluid
-            {
-                background-color: rgba(117, 112, 112, 0.5);
-                margin-top: 25px;
-                margin-bottom: 25px;
-                width: 550px;
-                height: 520px;
-                border-radius: 15px;
-                padding: 30px;
-                margin-right: 75px;
-            }
-            
-            .form-group{
-                margin-top: 15px;
-                padding: 10px;
-            }
-            
-            .btn{
-                width: 200px;
-                text-align: center;
-                background-color:rgba(99, 99, 120, 0.9); 
-                color: aliceblue;
-                
-                margin-left: 150px;
-            }
-            .container-fluid{
-                position: relative;
-                z-index: 1;
-            }
-             
-
-        </style>
-
-    </head>
-
-    <body>
-        <div class="container">
-            
-            
-            <video autoplay loop muted controls>
-            <source src="{{video.video_file.url}}" type="video/quicktime" />
-        
-            <source src="{{video.video_file.url}}" type="video/webm">
-            <source src="{{video.video_file.url}}" type="video/ogg">
-            <source src="{{video.video_file.url}}" type="video/mp4">
-            </video>
-          
+<body>
+<section class="h-100">
+    <div class="container py-5">
+      <div class="row d-flex justify-content-center g-0 mt-1">
+        <div class="col-xl-6 m-0 p-0">
+          <div class="card card-video  d-block mr-0">
+            <!--<div class="row g-0">
+              <div class="col-md-6 d-xl-block">-->
+                <video autoplay loop muted controls style="width: 500px; height: auto">
+                    <source src="{{video.video_file.url}}" type="video/quicktime" />
+                    <source src="{{video.video_file.url}}" type="video/webm">
+                    <source src="{{video.video_file.url}}" type="video/ogg">
+                    <source src="{{video.video_file.url}}" type="video/mp4">
+                </video>
+                </div>
             </div>
-        <div class="mask d-flex align-items-center vh-100 ">
-            <div class="container-fluid gradient-custom-3">
+     
+              <div class="col-xl-6 m-0 p-0">
+                <div class="card card-contact text-black  d-block ml-0">
 
-                <h4 class="text-uppercase text-center mb-3">CONTACT US</h4>
-                
-            
-                <form action="{% url 'add_contact' %}" method = 'post' class="was-validated 100vw contact ">
+                  <h3 class=" text-uppercase text-center p-3 font-weight-bold" style="color:azure;">CONTACT US</h3>
+                  <form action="{% url 'add_contact' %}" method = 'post' class=" 100vw p-3">
                     
                     {% csrf_token %}
-
-                    <div class="form-group">
-                
-                        <input type="text" class="txt " id="fullname" placeholder="Full Name" 
-                             name="fullname" style="width: 480px;height: 35px; ">
-                        
+                  <div class="row">
+                    <div class="col-md-12 mb-4">
+                      <div class="form-outline ">
+                        <input type="text"  class="txt form-control form-control-lg" id="fullname" placeholder="Full Name" name="fullname" />
+                      </div>
                     </div>
-
-                    <div class="form-group">
-                
-                        <input type="text" class="txt " id="email" placeholder="Email" 
-                            name="email" style="width: 480px; height: 35px;">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 mb-4">
+                      <div class="form-outline">
+                        <input type="text"  class="txt form-control form-control-lg" id="email" placeholder="Email"name="email" />
+                      </div>
                     </div>
-                    <span class="input-group">
-                    <div class="form-group">
-                
-                        <input type="text" class="txt" id="comp" placeholder="Company" 
-                            name="comp"style="width: 225px; height: 35px;" >
-                        </div>
+                  </div>
 
-                    <div class="form-group">
-                
-                        <input type="tel" class="txt" id="cnum" placeholder="Phone" 
-                            name="cnum" style="width: 225px; margin-left: 0px; height: 35px;">
-                    </div></span>
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text"  class=" txt form-control form-control-lg" id="comp" placeholder="Company" name="comp"/>
+                      </div>
 
-                    <div class="form-group">
-                        <textarea class="txt" id="msg" placeholder="Message" 
-                        name="msg" style="width: 480px;height: 80px; "></textarea>
                     </div>
-        
-                    
-                        <button type="submit" class="btn  text-align-center font-weight-bold mt-2"> SUBMIT</button>
-
-                    
-                </form>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text"  class=" txt form-control form-control-lg" id="cnum" placeholder="Phone" name="cnum" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 mb-4">
+                  <div class="form-outline mb-4">
+                    <textarea class="txt form-control form-control-lg" id="msg" placeholder="Message" name="msg" ></textarea>
+                  </div>
+                  </div>
+                  </div>
+                    <button type="submit" class="btn text-align-center font-weight-bold mt-2"> SUBMIT</button>
+                </div>
+                
+              </div>
+            </form>
             </div>
+            
+          </div>
+          
         </div>
-    </body>
+      </div>
+    </div>
+  </section>
+
+</body>
 </html>

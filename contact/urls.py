@@ -11,6 +11,5 @@ urlpatterns = [
     path('add_video',views.add_video,name='add_video'),
     path('',views.add_contact,name='add_contact'),
     path('show_contact',views.show_contact,name='show_contact'),
-    path('edit_contact/<pk>',views.edit_contact,name='edit_contact'),
     path('del_contact/<pk>',views.del_contact,name='del_contact'),
 ]
