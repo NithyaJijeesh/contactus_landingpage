@@ -3,18 +3,39 @@
 {% block content %}
 
 {% load static %}
-
+<style>
+     body{
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdr2Djt1a3dgSYNKmUpEgc3KzXRHgCoClSSA&usqp=CAU');
+    
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+   
+    background-size: cover;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
+   * {
+box-sizing: border-box;
+}
+  .card{
+    background: linear-gradient(to right, rgba(53, 57, 61, 0.4), rgba(2, 2, 8, 0.7));
+    margin-top: 150px;
+    margin-left: 150px;
+    margin-right: 50px;
+  }
+  
+</style>
 
 
 <div class="main-panel">
   <div class="content-wrapper">
     
 <div class="row">
-<div class="col-md-4 grid-margin stretch-card">
+<div class="col-md-12">
 <div class="card">
 <div class="card-body">
     <h2 class="text-center text-uppercase  font-weight-bold mb-5 mt-5 p-2" 
-    style="background-color : rgb(65, 65, 79); color: azure;"> 
+    style="color: azure;"> 
         Add Video</h2>
     
         <form action="{% url 'add_video' %}" method='post' enctype="multipart/form-data">
@@ -28,8 +49,8 @@
 
               
               
-            <button type="submit" class="btn  text-align-center font-weight-bold mt-2" 
-            style="width: 200px;  margin-left: 250px; background-color:rgba(99, 99, 120); color: aliceblue;"> SAVE</button>
+            <button type="submit" class="btn text-align-center font-weight-bold mt-2" 
+            style="width: 200px;  margin-left: 380px; background-color:rgb(17, 17, 21); color: aliceblue;"> SAVE</button>
 
 
         </form>

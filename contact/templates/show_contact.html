@@ -2,10 +2,36 @@
 {% block content %}
 {% load static %}
 
+<style>
+body{
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdr2Djt1a3dgSYNKmUpEgc3KzXRHgCoClSSA&usqp=CAU');
+  
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+ 
+  background-size: cover;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+ * {
+box-sizing: border-box;
+}
+.card{
+  background: linear-gradient(to right, rgba(53, 57, 61, 0.4), rgba(2, 2, 8, 0.7));
+  margin-top: 150px;
+  margin-left: 150px;
+  margin-right: 50px;
+}
+</style>
 
-
-<div class="container p-5" style="background-color: rgba(99, 99, 120, 0.9); width: 900px; border-radius: 5px;">
-    <h2 class="text-center p-2 mt-5 text-uppercase font-weight-bold mb-5" style="background-color : rgba(99, 99, 120); color: azure;"> 
+<div class="main-panel">
+  <div class="content-wrapper">
+    
+<div class="row">
+<div class="col-md-12">
+<div class="card">
+<div class="card-body">
+    <h2 class="text-center p-2 mt-5 text-uppercase font-weight-bold mb-5" style="color: azure;"> 
         Contacts</h2>
 
     <table class="table table-striped" style="background-color: aliceblue;">
@@ -43,4 +69,10 @@
     </table>
 
 </div>
+</div>
+</div>
+</div>
+  </div>
+</div>
+
 {% endblock%}

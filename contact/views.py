@@ -80,6 +80,7 @@ def login(request):
     
     return redirect('home')
 
+
 @login_required(login_url='login')
 def logout(request):
     auth.logout(request)
